@@ -1,0 +1,23 @@
+n_friends=3
+n_days=17
+
+def makearray(frequency,n_days):
+  time = [0]*n_days
+  for x in range(0,n_days,frequency):
+    time[x]=1
+  return time
+
+person1=makearray(2,n_days)
+print(person1)
+
+person2=makearray(3,n_days)
+print(person2)
+person3=makearray(4,n_days)
+print(person3)
+
+count = 0
+for x in range (n_days):
+  if person1[x]==person2[x]==person3[x]==1:
+    count+=1
+    
+print (count)
