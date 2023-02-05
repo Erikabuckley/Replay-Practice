@@ -17,25 +17,31 @@ def login(arrays,n_days,n_people):
 
 file= open('input-metaverse-5e87.txt','r')
 content=[]
+newcontent=[]
 for line in file:
   lines = line.strip()
   content.append([lines])
 file.close()
 case = str(content[0][0])
-for x in range(1,int(case)+int(1),2):
-  n_people,n_days= str(content[x]).split(" ")
-  print(n_people)
 
+for item in content:
+  for item2 in item:
+    current = item2.split(" ")
+  newcontent.append(current)
+
+count = 1
+for x in range(1,int(case)*2,2):
+  n_people,n_days= (newcontent[x])
   n_people=int(n_people)
   n_days = int(n_days)
-  frequency = content[x+1].split(" ")
-  print(frequency)
+  frequency = newcontent[x+1]
   arrays = []
+  
   for element in frequency:
-    makearray(int(element),n_days).append(arrays)
-
+    arrays.append(makearray(int(element),n_days))
   no_same = login(arrays,n_days,n_people)
   
   file=open('Output 2.txt','a')
-  file.writelines('\nCase #{}: {}'.format(x,no_same))
+  file.writelines('Case #{}: {}\n'.format(count,no_same))
   file.close()
+  count +=1
