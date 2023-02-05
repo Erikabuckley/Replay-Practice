@@ -41,7 +41,7 @@ for x in range(1,int(case)*2,2):
     arrays.append(makearray(int(element),n_days))
   no_same = login(arrays,n_days,n_people)
   
-  file=open('Output 2.txt','a')
+  file=open('Output 4.txt','a')
   file.writelines('Case #{}: {}\n'.format(count,no_same))
   file.close()
   count +=1
