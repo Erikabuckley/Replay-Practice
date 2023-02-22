@@ -1,0 +1,8 @@
+n = int(input('size of grid\n'))
+grid = [[]] * n
+
+
+print(grid)
+file=open('Output 2.txt','a')
+file.writelines(.format())
+file.close()
