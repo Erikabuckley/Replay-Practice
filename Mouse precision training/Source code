@@ -1,9 +1,31 @@
-n = int(input('size of grid\n'))
-grid = [[]] * n
+def make_grid(size):
+  grid = [""]* size
+  print(grid)
+  newgrid = []
+  for x in range(size):
+    newgrid += [grid]
 
+  print(newgrid)
+  return(newgrid)
+  
 
-print(grid)
-file=open('Output 2.txt','a')
-file.writelines(.format())
+file= open('test.txt','r')
+content=[]
+newcontent=[]
+for line in file:
+  lines = line.strip()
+  content.append([lines])
 file.close()
-Mouse precision training/Source code
+case = str(content[0][0])
+
+for item in content:
+  for item2 in item:
+    current = item2.split(" ")
+  newcontent.append(current)
+print(newcontent[1][0])
+grid = make_grid(int(newcontent[1][0]))
+
+grid[1][0] = 1
+print(grid)
+  
+
