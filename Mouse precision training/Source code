@@ -1,14 +1,25 @@
+#makes the grid of size n
 def make_grid(size):
-  grid = [""]* size
-  print(grid)
-  newgrid = []
-  for x in range(size):
-    newgrid += [grid]
+  grid = []
+  maingrid = []
+  for i in range(size):
+    grid.append("0")
+  for i in range(size):
+    maingrid.append(grid[:])
+  return maingrid
 
-  print(newgrid)
-  return(newgrid)
-  
-
+# apply target squres
+def addtarget(grid,input):
+  data = input[2:]
+  count = 0 
+  start = input[0][0]+input[0][1]
+  for element in data:
+    x = int(data[count][0])
+    y = int(data[count][1])
+    grid[x][y] = 'T'
+    count +=1
+  return(grid,start)
+#opens the input file and writes the test to a list
 file= open('test.txt','r')
 content=[]
 newcontent=[]
@@ -22,10 +33,8 @@ for item in content:
   for item2 in item:
     current = item2.split(" ")
   newcontent.append(current)
-print(newcontent[1][0])
-grid = make_grid(int(newcontent[1][0]))
 
-grid[1][0] = 1
-print(grid)
-  
+#calls the make grid function and prints the result
+realgrid = make_grid(int(newcontent[1][0]))
 
+fullgrid,startpos = (addtarget(realgrid,newcontent))
